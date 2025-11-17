@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 32 20% 97%;
+    --foreground: 28 18% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 28 18% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 28 18% 15%;
+
+    --primary: 25 65% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 142 35% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 32 15% 92%;
+    --muted-foreground: 28 12% 45%;
+
+    --accent: 164 48% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 32 20% 88%;
+    --input: 32 20% 88%;
+    --ring: 25 65% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom furniture theme tokens */
+    --warm-beige: 32 30% 90%;
+    --wood-brown: 25 65% 45%;
+    --sage-green: 142 35% 55%;
+    --forest-green: 164 48% 42%;
+    --cream: 40 30% 95%;
+    
+    /* Gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(32 30% 90%) 0%, hsl(40 30% 95%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(32 20% 97%) 0%, hsl(142 25% 95%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 4px 24px rgba(0, 0, 0, 0.12);
+    --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.16);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease;
+  }
+
+  .dark {
+    --background: 28 28% 8%;
+    --foreground: 32 15% 92%;
+
+    --card: 28 24% 12%;
+    --card-foreground: 32 15% 92%;
+
+    --popover: 28 24% 12%;
+    --popover-foreground: 32 15% 92%;
+
+    --primary: 25 65% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 142 35% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 28 18% 18%;
+    --muted-foreground: 32 12% 65%;
+
+    --accent: 164 48% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 28 18% 18%;
+    --input: 28 18% 18%;
+    --ring: 25 65% 55%;
+    
+    /* Dark mode gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(28 28% 12%) 0%, hsl(28 24% 16%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(28 28% 8%) 0%, hsl(142 20% 12%) 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
